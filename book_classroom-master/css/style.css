@@ -1,0 +1,130 @@
+@font-face {
+    font-family: Arboria;
+    src: url(../fonts/Arboria-Bold.otf);
+  }
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Arboria";
+}
+
+body {
+    background-color: #575A60;
+}
+
+.login {
+    max-width: 500px;
+    height: 485px;
+    background-color: #4A4D53;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.register {
+    height: 600px;
+}
+
+.img {
+    width: 50%;
+    max-width: 200px;
+    max-height: 200px;  
+    display: block;
+    margin: auto;
+    margin-top: -80px;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
+
+input {
+    background-color: #4A4D53;
+    border: 0;
+    font-size: 24px;
+    border-width: 3px;
+    border-bottom: 3px solid #7EDE9B;
+    color: #7EDE9B;
+    font-weight: bold;
+    outline: none;
+
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+}
+
+.form-container input[type=submit] {
+    width: 100%;
+    height: 70px;
+    font-size: 32px;
+    background-color: #7EDE9B;
+    color: #4A4D53;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+}
+
+.form-container {
+    padding-top: 50px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.error {
+    background-color: #cf6679;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    background-color: #4A4D53;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
+}
+
+.classroom-container {
+    width: 100%;
+    max-width: 1620px;
+    height: 820px;
+    background-color: #4A4D53;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    padding: 150px;
+}
+
+.clock {
+    float: left;
+    width: 50%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(50%);
+
+}
+
+.clock .time {
+    text-align: center;
+    width: 60%;
+    font-size: 98px;
+    color: #7EDE9B;
+    font-weight: bold;
+    border-bottom: 5px solid #7EDE9B;
+}
+
+.clock .date {
+    text-align: center;
+    width: 60%;
+    font-size: 65px;
+    color: #4c865d;
+    font-weight: bold;
+}
