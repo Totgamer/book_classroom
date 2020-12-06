@@ -79,6 +79,12 @@
                                             <a href="_dashboard/components/deleteReservation.php?id=<?php echo $row['id'];?>"><i class="material-icons" title="Remove User">close</i></a>
                                         </td>
                                     <?php
+                                    } else if($row['name'] == $_SESSION['username']) {
+                                    ?>
+                                        <td>
+                                            <a href="_dashboard/components/deleteReservation.php?id=<?php echo $row['id'];?>"><i class="material-icons" title="Remove User">close</i></a>
+                                        </td>
+                                    <?php
                                     }
                                     echo "</tr>";
                                 }
