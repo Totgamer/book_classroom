@@ -13,6 +13,7 @@
     $user_check = true;
     }
 
+    // delete reservation
     if ($_SESSION['isAdmin'] || $user_check) {
         // $id = $_GET['id'];
         $sql = "DELETE FROM reservaties WHERE id = '$id'";
