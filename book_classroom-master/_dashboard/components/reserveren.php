@@ -64,6 +64,9 @@
                                 $date = $row['date'];
                                 if( strtotime($date) > strtotime('now') ) {
 
+                                    // $Date = $row['date'];  
+                                    $row['date'] = date("d-m-Y", strtotime($row['date']));
+
                                     echo "<tr>";
                                     echo "<td>" . $row['date'] . "</td>";
                                     echo "<td>" . $row['time_start'] . "</td>";

@@ -30,6 +30,9 @@
                                             //check date
                                             $date = $row['date'];
                                             if( strtotime($date) > strtotime('now') ) {
+
+                                                $row['date'] = date("d-m-Y", strtotime($row['date']));
+
                                                 echo "<tr>";
                                                 echo "<td class='text-light'>" . $row['date'] . "</td>";
                                                 echo "<td class='text-light'>" . $row['time_start'] . "</td>";
