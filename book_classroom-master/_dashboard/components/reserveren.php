@@ -63,8 +63,7 @@
                                 //check date
                                 $date = $row['date'];
                                 if( strtotime($date) > strtotime('now') ) {
-
-                                    // $Date = $row['date'];  
+ 
                                     $row['date'] = date("d-m-Y", strtotime($row['date']));
 
                                     echo "<tr>";
