@@ -21,7 +21,7 @@
                         ?>
                     </select>
                     <label class="form-check-label">Lokaal</label>
-                    <input type="date" name="date" class="form-control">
+                    <input type="date" name="date" class="form-control" id="date_select">
                     <label class="form-check-label">Datum</label>
                     <input type="time" name="time_start" class="form-control">
                     <label class="form-check-label">Start tijd</label>
@@ -29,6 +29,17 @@
                     <label class="form-check-label">Eind tijd</label>
                     <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
                     <input type="submit" name="r_time" class="btn btn-primary pull-right mt-3">
+                    <script>
+                    var date = document.getElementById("date_select");
+                    var today = new Date();
+
+                    date.addEventListener('input', function (evt) {
+                        if(new Date(date.toDateString()) < new Date(new Date().toDateString())) {
+                            date.value = Date(new Date().toDateString());
+                        }   
+                    });
+
+                    </script>
                 </div>
             </form>
         </div>
