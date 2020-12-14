@@ -73,7 +73,11 @@
                             while ($row = $result->fetch_assoc()){
                                 //check date
                                 $date = $row['date'];
-                                if( strtotime($date) > strtotime('now') ) {
+                                $time_end = $row['time_end'];
+                                $cur_time_h = substr($time_end, 0, 2) * 3600;
+                                $cur_time_m = substr($time_end, 3, 2) * 60;
+                                $cur_time = $cur_time_h + $cur_time_m + strtotime($date);
+                                if( $cur_time > strtotime('now') ) {
  
                                     $row['date'] = date("d-m-Y", strtotime($row['date']));
 

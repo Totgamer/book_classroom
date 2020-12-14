@@ -110,10 +110,7 @@ if (isset($_POST['r_time'])) {
   }
 
   //check date
-  $cur_time_h = substr($time_start, 0, 2) * 3600;
-  $cur_time_m = substr($time_start, 3, 5) * 60;
-  $cur_time = $cur_time_h + $cur_time_m + strtotime($date);
-  if( $cur_time < strtotime('now')) {
+  if( strtotime($date) < strtotime('now') ) {
     array_push($reservation_errors, "Date already passed");
   }
 
