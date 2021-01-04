@@ -8,14 +8,13 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h4 class="card-title ">Alle Lokalen</h4>
-                <p class="card-category">yoink</p>
             </div>
             <div class="card-body">
 
             <form action="index.php?action=lokalen" method="post"> 
                 <div class="form-group pull-right">
                 <div class="input-group">
-                    <input type="text" name="room" class="form-control" placeholder="Voeg een lokaal toe.." autocomplete='off'>
+                    <input type="text" name="room" class="form-control" placeholder="Voeg een lokaal toe.." autocomplete='off' required>
                     <input type="submit" name="add_room" class="btn btn-white btn-round btn-just-icon pull-right" value="+">
                 </div>
                 </div>

@@ -120,20 +120,28 @@ if (isset($_POST['r_time'])) {
   // als er geen errors zijn, wordt het in de database gezet
   if (count($reservation_errors) == 0) {
 
-    $query = "INSERT INTO reservaties (id, date, time_start, time_end, name, lokaal) 
-          VALUES('', '$date', '$time_start', '$time_end', '$name', '$lokaal')";
-    mysqli_query($db, $query);
-    header('location: index.php?action=reserveren');
+    $query = "INSERT INTO reservaties (date, time_start, time_end, name, lokaal) 
+          VALUES('$date', '$time_start', '$time_end', '$name', '$lokaal')";
+    $insert_query = mysqli_query($db, $query);
+    if($insert_query === false){
+      echo mysqli_error($db);
+    }else{
+      header('location: index.php?action=reserveren');
+    }
   }
 }
 // eind reserveren
 
 // lokaal toevoegen
-if (isset($_POST['add_room'])) {
+if (isset($_POST['add_room'],$_POST['room']) && $_POST['room'] != "") {
   $room = mysqli_real_escape_string($db, $_POST['room']);
 
-  $sql = "INSERT INTO lokalen (id, name) VALUES (NULL, '$room')";
-  mysqli_query($db, $sql);
+  $sql = "INSERT INTO lokalen (name) VALUES ('$room')";
+  $insert_query = mysqli_query($db, $sql);
+
+  if($insert_query === false){
+    echo mysqli_error($db);
+  }
   header('location: index.php?action=lokalen');
 }
 

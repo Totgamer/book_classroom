@@ -4,7 +4,6 @@
         <div class="card">
             <div class="card-header card-header-success">
                 <h4 class="card-title "><i class=" material-icons small">settings</i> Account</h4>
-                <p class="card-category">zonk</p>
             </div>
             
             <div class="card-body">            
@@ -23,7 +22,6 @@
         <div class="card">
             <div class="card-header card-header-danger">
                 <h4 class="card-title "><i class=" material-icons small">settings</i> Gevaarlijk</h4>
-                <p class="card-category">zonk</p>
             </div>
             <div class="card-body">            
                 <div class="table-responsive">

@@ -11,7 +11,7 @@
   	header('location: ./login.php');
   }
 
-  if(strpos($_SESSION['username'], "lokaal") !== false) {
+  if( isset($_SESSION['username']) && strpos($_SESSION['username'], "lokaal") !== false) {
     header('location: classroom.php');
   }
 

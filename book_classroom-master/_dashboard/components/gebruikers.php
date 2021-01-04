@@ -8,7 +8,6 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h4 class="card-title ">Alle gebruikers</h4>
-                <p class="card-category">zonk</p>
             </div>
             <div class="card-body">            
 
