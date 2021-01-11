@@ -255,7 +255,7 @@ if(isset($_POST['r_update'], $_POST['room'], $_POST['date'], $_POST['time_start'
     $_POST['room'] = mysqli_real_escape_string($db, $_POST['room']);
     
     // update query voor updaten reservatie
-    $sql = "UPDATE reservaties SET `date` = '" . $_POST['date'] . "', time_start = '" . $_POST['time_start'] . "', time_end = '" . $_POST['time_end'] . ", lokaal =" . $_POST['room'] . "' WHERE id='" . $reservation_id . "'";
+    $sql = "UPDATE reservaties SET `date` = '" . $_POST['date'] . "', time_start = '" . $_POST['time_start'] . "', time_end = '" . $_POST['time_end'] . "', lokaal = '" . $_POST['room'] . "' WHERE id='" . $reservation_id . "'";
     mysqli_query($db, $sql);
   }
 }

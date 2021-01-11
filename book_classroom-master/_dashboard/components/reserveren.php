@@ -150,7 +150,7 @@
                                 $sql = "SELECT * FROM lokalen"; 
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                                 while ($row = $result->fetch_assoc()){
-                                    echo "<option>" . $row['name'] . "</option>";
+                                    echo "<option value='" . $row['name'] . "'>" . $row['name'] . "</option>";
                                 }
                             ?>
                         </select>
