@@ -239,4 +239,27 @@ function consolelog($msg) {
   echo "<script type='text/javascript'>console.log('$msg');</script>";
 }
 
+// update reservation
+
+if(isset($_post['r_update'], $_POST['date'], $_POST['time_start'], $_POST['time_end'], $_POST['reservation'])) {
+  $reservation_id = mysqli_real_escape_string($db, $_POST['reservation']);
+  // query om te checken of reservatie van user is
+  $sql = "SELECT * FROM reservaties 
+          WHERE id='" . $reservation_id . "' AND `name`='" . $_SESSION['username'] . "' LIMIT 1";
+  echo "<script>alert('" . $sql . "')</script>"; // Debug
+  $result = mysqli_query($db, $sql) or die(mysqli_query($db));
+  if($result){
+    // post waardes naar mysqli_real_escape_string
+    $_POST['date'] = mysqli_real_escape_string($db, $_POST['date']);
+    $_POST['time_start'] = mysqli_real_escape_string($db, $_POST['time_start']);
+    $_POST['time_end'] = mysqli_real_escape_string($db, $_POST['time_end']);
+    // update query voor updaten reservatie
+    $sql = "UPDATE reservations
+            SET `date` = ".$_POST['date'].", time_start = ".$_POST['time_start'].", time_end = ".$_POST['time_end']."
+            WHERE id='".$reservation_id."'";
+    mysqli_query($db, $sql);
+    echo "<script>alert('" . $sql . "')</script>"; // Debug
+  }
+}
+
 ?>
