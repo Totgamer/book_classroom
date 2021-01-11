@@ -126,12 +126,21 @@
                 <form action="index.php?action=reserveren" method="post"> 
                     <div class="form-group">    
                         <label class="form-check-label">Reservatie</label>
-                        <select class="form-control" name="room">
+                        <select class="form-control" name="reservation">
                             <?php
-                                $sql = "SELECT * FROM reservaties WHERE `name`=" . $_SESSION['username'] . ""; 
+                                $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                                 while ($row = $result->fetch_assoc()){
-                                    echo "<option>" . $row['time_start'] . "-" . $row['time_end'] . "</option>";
+                                    $date = $row['date'];
+                                    $time_end = $row['time_end'];
+                                    $cur_time_h = substr($time_end, 0, 2) * 3600;
+                                    $cur_time_m = substr($time_end, 3, 2) * 60;
+                                    $cur_time = $cur_time_h + $cur_time_m + strtotime($date);
+                                    $reservations = false;
+                                    if( $cur_time > strtotime('now') ) {
+                                        echo "<option value='" . $row["id"] . "'>lokaal: " . $row['lokaal'] . " | " . substr($row['time_start'], 0, 5) . " - " . substr($row['time_end'], 0, 5) . " | " . date_format(date_create($row['date']), "d-m-Y") . "</option>";
+                                        $reservations = true;
+                                    }
                                 }
                             ?>
                         </select>
@@ -142,7 +151,7 @@
                         <label class="form-check-label">Eind tijd</label>
                         <input type="time" name="time_end" class="form-control">
                         <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
-                        <input type="submit" name="r_time" class="btn btn-primary pull-right mt-3">
+                        <input type="submit" name="r_update" class="btn btn-primary pull-right mt-3">
                         <script>
                         var date = document.getElementById("date_select");
                         var today = new Date();
