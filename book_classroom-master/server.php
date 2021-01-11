@@ -241,7 +241,7 @@ function consolelog($msg) {
 
 // update reservation
 
-if(isset($_POST['r_update'], $_POST['date'], $_POST['time_start'], $_POST['time_end'], $_POST['reservation'])) {
+if(isset($_POST['r_update'], $_POST['room'], $_POST['date'], $_POST['time_start'], $_POST['time_end'], $_POST['reservation'])) {
   $reservation_id = mysqli_real_escape_string($db, $_POST['reservation']);
   // query om te checken of reservatie van user is
   $sql = "SELECT * FROM reservaties 
@@ -252,8 +252,10 @@ if(isset($_POST['r_update'], $_POST['date'], $_POST['time_start'], $_POST['time_
     $_POST['date'] = mysqli_real_escape_string($db, $_POST['date']);
     $_POST['time_start'] = mysqli_real_escape_string($db, $_POST['time_start']);
     $_POST['time_end'] = mysqli_real_escape_string($db, $_POST['time_end']);
+    $_POST['room'] = mysqli_real_escape_string($db, $_POST['room']);
+    
     // update query voor updaten reservatie
-    $sql = "UPDATE reservaties SET `date` = '" . $_POST['date'] . "', time_start = '" . $_POST['time_start'] . "', time_end = '" . $_POST['time_end'] . "' WHERE id='" . $reservation_id . "'";
+    $sql = "UPDATE reservaties SET `date` = '" . $_POST['date'] . "', time_start = '" . $_POST['time_start'] . "', time_end = '" . $_POST['time_end'] . ", lokaal =" . $_POST['room'] . "' WHERE id='" . $reservation_id . "'";
     mysqli_query($db, $sql);
   }
 }

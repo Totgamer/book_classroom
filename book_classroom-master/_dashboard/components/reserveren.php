@@ -144,6 +144,16 @@
                                 }
                             ?>
                         </select>
+                        <label class="form-check-label">Lokaal</label>
+                        <select class="form-control" name="room">
+                            <?php
+                                $sql = "SELECT * FROM lokalen"; 
+                                $result = mysqli_query($db, $sql) or die(mysqli_query($db));
+                                while ($row = $result->fetch_assoc()){
+                                    echo "<option>" . $row['name'] . "</option>";
+                                }
+                            ?>
+                        </select>
                         <label class="form-check-label">Datum</label>
                         <input type="date" name="date" class="form-control" id="date_select">
                         <label class="form-check-label">Start tijd</label>
