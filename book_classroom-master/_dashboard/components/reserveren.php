@@ -28,7 +28,7 @@
                     <label class="form-check-label">Eind tijd</label>
                     <input type="time" name="time_end" class="form-control">
                     <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
-                    <input type="submit" name="r_time" class="btn btn-primary pull-right mt-3">
+                    <input type="submit" name="r_time" value="reserveren" class="btn btn-primary pull-right mt-3">
                     <script>
                     var date = document.getElementById("date_select");
                     var today = new Date();
@@ -117,7 +117,7 @@
 <div class="row">
     <div class="col-lg-6 col-md-12">
         <div class="card">
-            <div class="card-header card-header-primary">
+            <div class="card-header card-header-danger">
                 <h4 class="card-title">Reservatie aanpassen</h4>
                 <p class="card-category">Reservaties aan passen</p>
             </div>
@@ -161,7 +161,7 @@
                         <label class="form-check-label">Eind tijd</label>
                         <input type="time" name="time_end" class="form-control">
                         <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
-                        <input type="submit" name="r_update" class="btn btn-primary pull-right mt-3">
+                        <input type="submit" name="r_update" value="aanpassen" class="btn btn-danger pull-right mt-3">
                         <script>
                         var date = document.getElementById("date_select");
                         var today = new Date();
