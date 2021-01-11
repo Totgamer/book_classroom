@@ -247,13 +247,13 @@ if(isset($_POST['r_update'], $_POST['room'], $_POST['date'], $_POST['time_start'
   $sql = "SELECT * FROM reservaties 
           WHERE id='" . $reservation_id . "' AND `name`='" . $_SESSION['username'] . "' LIMIT 1";
   $result = mysqli_query($db, $sql) or die(mysqli_query($db));
-  if(mysqli_num_rows($result) >= 1){
+  if(mysqli_num_rows($result) >= 1 || $_SESSION['isAdmin']){
     //check date
   $cur_time_h = substr($_POST['time_start'], 0, 2) * 3600;
   $cur_time_m = substr($_POST['time_start'], 3, 5) * 60;
   $cur_time = $cur_time_h + $cur_time_m + strtotime($_POST['date']);
   if( $cur_time < strtotime('now')) {
-    array_push($reservation_errors, "Date already passed");
+    array_push($reservation_update_errors, "Date already passed");
   } else {
     // post waardes naar mysqli_real_escape_string
     $_POST['date'] = mysqli_real_escape_string($db, $_POST['date']);

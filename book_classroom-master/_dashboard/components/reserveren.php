@@ -128,7 +128,11 @@
                         <label class="form-check-label">Reservatie</label>
                         <select class="form-control" name="reservation">
                             <?php
-                                $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                if($_SESSION['isAdmin']){
+                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                } else {
+                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                }
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                                 while ($row = $result->fetch_assoc()){
                                     $date = $row['date'];
