@@ -247,7 +247,7 @@ if(isset($_POST['r_update'], $_POST['date'], $_POST['time_start'], $_POST['time_
   $sql = "SELECT * FROM reservaties 
           WHERE id='" . $reservation_id . "' AND `name`='" . $_SESSION['username'] . "' LIMIT 1";
   $result = mysqli_query($db, $sql) or die(mysqli_query($db));
-  if($result){
+  if(mysqli_num_rows($result) >= 1){
     // post waardes naar mysqli_real_escape_string
     $_POST['date'] = mysqli_real_escape_string($db, $_POST['date']);
     $_POST['time_start'] = mysqli_real_escape_string($db, $_POST['time_start']);
