@@ -113,3 +113,50 @@
         </div>
     </div>
 </div>
+<!-- reservatie aanpassen -->
+<div class="row">
+    <div class="col-lg-6 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Reservatie aanpassen</h4>
+                <p class="card-category">Reservaties aan passen</p>
+            </div>
+            <div class="card-body table-responsive">
+            <?php include("errors.php") ?>
+                <form action="index.php?action=reserveren" method="post"> 
+                    <div class="form-group">    
+                        <label class="form-check-label">Reservatie</label>
+                        <select class="form-control" name="room">
+                            <?php
+                                $sql = "SELECT * FROM reservaties WHERE `name`=" . $_SESSION['username'] . ""; 
+                                $result = mysqli_query($db, $sql) or die(mysqli_query($db));
+                                while ($row = $result->fetch_assoc()){
+                                    echo "<option>" . $row['time_start'] . "-" . $row['time_end'] . "</option>";
+                                }
+                            ?>
+                        </select>
+                        <label class="form-check-label">Datum</label>
+                        <input type="date" name="date" class="form-control" id="date_select">
+                        <label class="form-check-label">Start tijd</label>
+                        <input type="time" name="time_start" class="form-control">
+                        <label class="form-check-label">Eind tijd</label>
+                        <input type="time" name="time_end" class="form-control">
+                        <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
+                        <input type="submit" name="r_time" class="btn btn-primary pull-right mt-3">
+                        <script>
+                        var date = document.getElementById("date_select");
+                        var today = new Date();
+
+                        date.addEventListener('input', function (evt) {
+                            if(new Date(date.toDateString()) < new Date(new Date().toDateString())) {
+                                date.value = Date(new Date().toDateString());
+                            }   
+                        });
+
+                        </script>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
