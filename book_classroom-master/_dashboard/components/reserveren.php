@@ -114,6 +114,12 @@
     </div>
 </div>
 <!-- reservatie aanpassen -->
+<?php
+$sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'";
+$result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
+
+if(mysqli_num_rows($result_check) > 0) {
+?>
 <div class="row">
     <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -131,7 +137,7 @@
                                 if($_SESSION['isAdmin']){
                                     $sql = "SELECT * FROM reservaties"; 
                                 } else {
-                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'";
                                 }
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                                 while ($row = $result->fetch_assoc()){
@@ -183,3 +189,6 @@
         </div>
     </div>
 </div>
+<?php 
+}
+?>
