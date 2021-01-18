@@ -265,7 +265,22 @@ if(isset($_POST['r_update'], $_POST['room'], $_POST['date'], $_POST['time_start'
     $sql = "UPDATE reservaties SET `date` = '" . $_POST['date'] . "', time_start = '" . $_POST['time_start'] . "', time_end = '" . $_POST['time_end'] . "', lokaal = '" . $_POST['room'] . "' WHERE id='" . $reservation_id . "'";
     mysqli_query($db, $sql);
   }
+  }
 }
+
+// update lokaal
+
+if(isset($_POST['changeRoom'], $_POST['changeRoomName'], $_POST['currentRoom'])) {
+  
+  if($_SESSION['isAdmin']){
+    // post waardes naar mysqli_real_escape_string
+    $_POST['changeRoomName'] = mysqli_real_escape_string($db, $_POST['changeRoomName']);
+    $_POST['currentRoom'] = mysqli_real_escape_string($db, $_POST['currentRoom']);
+    
+    // update query voor updaten lokaal
+    $sql = "UPDATE lokalen SET `name` = '" . $_POST['changeRoomName'] . "'WHERE id='" . $_POST['currentRoom'] . "'";
+    mysqli_query($db, $sql);
+  }
 }
 
 ?>

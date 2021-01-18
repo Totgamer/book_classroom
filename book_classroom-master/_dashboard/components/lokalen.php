@@ -6,6 +6,38 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
+        <div class="card-header card-header-success">
+            <h4 class="card-title">Lokaal aanpassen</h4>
+        </div>
+        <div class="card-body">
+            <?php include("errors.php") ?>  
+            <form action="index.php?action=lokalen" method="post">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="form-check-label">Oud lokaal</label>
+                        <select id="room_num" class="form-control" name="currentRoom">
+                            <?php
+                                $sql = "SELECT * FROM lokalen"; 
+                                $result = mysqli_query($db, $sql) or die(mysqli_query($db));
+                                while ($row = $result->fetch_assoc()){
+                                    echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+                                }
+                            ?>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Nieuw lokaal naam/nummer..." name="changeRoomName" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success pull-right" name="changeRoom">Update</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
             <div class="card-header card-header-primary">
                 <h4 class="card-title ">Alle Lokalen</h4>
             </div>
