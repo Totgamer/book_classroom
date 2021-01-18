@@ -68,6 +68,7 @@
                 </thead>
                     <tbody>
                         <?php
+                            $current_reservation = false;
                             $sql = "SELECT * FROM reservaties"; 
                             $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                             while ($row = $result->fetch_assoc()){
@@ -97,6 +98,7 @@
                                         </td>
                                     <?php
                                     } else if($row['name'] == $_SESSION['username']) {
+                                        $current_reservation = true;
                                     ?>
                                         <td>
                                             <a href="_dashboard/components/deleteReservation.php?id=<?php echo $row['id'];?>"><i class="material-icons" title="Remove User">close</i></a>
@@ -114,12 +116,18 @@
     </div>
 </div>
 <!-- reservatie aanpassen -->
+<?php
+$sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "' AND `date` > NOW() ";
+$result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
+
+if(mysqli_num_rows($result_check) > 0 && $current_reservation == true) {
+?>
 <div class="row">
     <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="card-header card-header-danger">
                 <h4 class="card-title">Reservatie aanpassen</h4>
-                <p class="card-category">Reservaties aan passen</p>
+                <p class="card-category">gemaakte reservaties aanpassen</p>
             </div>
             <div class="card-body table-responsive">
             <?php include("errors.php") ?>
@@ -131,7 +139,7 @@
                                 if($_SESSION['isAdmin']){
                                     $sql = "SELECT * FROM reservaties"; 
                                 } else {
-                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'";
                                 }
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                                 while ($row = $result->fetch_assoc()){
@@ -183,3 +191,6 @@
         </div>
     </div>
 </div>
+<?php 
+}
+?>
