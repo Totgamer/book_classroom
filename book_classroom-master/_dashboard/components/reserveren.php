@@ -129,7 +129,7 @@
                         <select class="form-control" name="reservation">
                             <?php
                                 if($_SESSION['isAdmin']){
-                                    $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
+                                    $sql = "SELECT * FROM reservaties"; 
                                 } else {
                                     $sql = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'"; 
                                 }
