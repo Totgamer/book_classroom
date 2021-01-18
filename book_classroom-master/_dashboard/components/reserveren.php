@@ -68,7 +68,7 @@
                 </thead>
                     <tbody>
                         <?php
-                            $current_reservation = false;
+                            global $current_reservation;
                             $sql = "SELECT * FROM reservaties"; 
                             $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                             while ($row = $result->fetch_assoc()){
@@ -88,6 +88,7 @@
                                     echo "<td>" . $row['time_end'] . "</td>";
                                     echo "<td>" . $row['lokaal'] . "</td>";
                                     if($_SESSION['isAdmin']) {
+                                        $current_reservation = true;
                                         ?>
 
                                         <td>
@@ -117,10 +118,10 @@
 </div>
 <!-- reservatie aanpassen -->
 <?php
-$sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "' AND `date` > NOW() ";
-$result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
+// $sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "' AND `date` > NOW() ";
+// $result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
 
-if(mysqli_num_rows($result_check) > 0 && $current_reservation == true) {
+if($current_reservation == true) {
 ?>
 <div class="row">
     <div class="col-lg-6 col-md-12">
