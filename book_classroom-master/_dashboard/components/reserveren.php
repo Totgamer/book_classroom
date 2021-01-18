@@ -68,6 +68,7 @@
                 </thead>
                     <tbody>
                         <?php
+                            $current_reservation = false;
                             $sql = "SELECT * FROM reservaties"; 
                             $result = mysqli_query($db, $sql) or die(mysqli_query($db));
                             while ($row = $result->fetch_assoc()){
@@ -97,6 +98,7 @@
                                         </td>
                                     <?php
                                     } else if($row['name'] == $_SESSION['username']) {
+                                        $current_reservation = true;
                                     ?>
                                         <td>
                                             <a href="_dashboard/components/deleteReservation.php?id=<?php echo $row['id'];?>"><i class="material-icons" title="Remove User">close</i></a>
@@ -115,10 +117,10 @@
 </div>
 <!-- reservatie aanpassen -->
 <?php
-$sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "'";
+$sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "' AND `date` > NOW() ";
 $result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
 
-if(mysqli_num_rows($result_check) > 0) {
+if(mysqli_num_rows($result_check) > 0 && $current_reservation == true) {
 ?>
 <div class="row">
     <div class="col-lg-6 col-md-12">
