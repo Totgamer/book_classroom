@@ -119,7 +119,7 @@
         <div class="card">
             <div class="card-header card-header-danger">
                 <h4 class="card-title">Reservatie aanpassen</h4>
-                <p class="card-category">Reservaties aan passen</p>
+                <p class="card-category">gemaakte reservaties aanpassen</p>
             </div>
             <div class="card-body table-responsive">
             <?php include("errors.php") ?>
