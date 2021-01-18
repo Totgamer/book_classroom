@@ -135,7 +135,7 @@ if($current_reservation == true) {
                 <form action="index.php?action=reserveren" method="post"> 
                     <div class="form-group">    
                         <label class="form-check-label">Reservatie</label>
-                        <select class="form-control" name="reservation">
+                        <select id="reservation" class="form-control" name="reservation">
                             <?php
                                 if($_SESSION['isAdmin']){
                                     $sql = "SELECT * FROM reservaties"; 
@@ -158,7 +158,7 @@ if($current_reservation == true) {
                             ?>
                         </select>
                         <label class="form-check-label">Lokaal</label>
-                        <select class="form-control" name="room">
+                        <select id="room_num" class="form-control" name="room">
                             <?php
                                 $sql = "SELECT * FROM lokalen"; 
                                 $result = mysqli_query($db, $sql) or die(mysqli_query($db));
@@ -184,6 +184,11 @@ if($current_reservation == true) {
                                 date.value = Date(new Date().toDateString());
                             }   
                         });
+
+                        // jquery
+                        //get room number from option text
+                        $("#room_num option:selected").text().slice(8, 11);
+                        alert();
 
                         </script>
                     </div>
