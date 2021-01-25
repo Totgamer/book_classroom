@@ -170,9 +170,9 @@ if($current_reservation == true) {
                         <label class="form-check-label">Datum</label>
                         <input type="date" name="date" class="form-control" id="date_select">
                         <label class="form-check-label">Start tijd</label>
-                        <input type="time" name="time_start" class="form-control">
+                        <input type="time" id="time_start" name="time_start" class="form-control">
                         <label class="form-check-label">Eind tijd</label>
-                        <input type="time" name="time_end" class="form-control">
+                        <input type="time" id="time_end" name="time_end" class="form-control">
                         <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
                         <input type="submit" name="r_update" value="aanpassen" class="btn btn-danger pull-right mt-3">
                         <script>
@@ -187,8 +187,37 @@ if($current_reservation == true) {
 
                         // jquery
                         //get room number from option text
-                        $("#room_num option:selected").text().slice(8, 11);
-                        alert();
+                        var $data = $("#reservation option:selected").text();
+
+                        
+                        var $year = $data.slice(36, 40);
+                        var $month = $data.slice(33, 35);
+                        var $day = $data.slice(30, 32);
+                        var $newDate = $data.slice(36, 40);
+                            $newDate += '-';
+                            $newDate += $month;
+                            $newDate += '-';
+                            $newDate += $day;
+                        console.log($newDate);
+
+                        $('#room_num').val($data.slice(8, 11));
+                        $('#date_select').val($newDate);
+                        $('#time_start').val($data.slice(14, 19));
+                        $('#time_end').val($data.slice(22, 27));
+
+                        $("#reservation").bind('change', function (evt) {
+                            $data = $("#reservation option:selected").text();
+
+                            $('#room_num').val($data.slice(8, 11));
+                            $('#date_select').val($newDate);
+                            $('#time_start').val($data.slice(14, 19));
+                            $('#time_end').val($data.slice(22, 27));
+                        });
+
+                        
+                        
+
+                        
 
                         </script>
                     </div>
