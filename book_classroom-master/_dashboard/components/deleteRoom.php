@@ -7,10 +7,10 @@
         // pop up
         echo 
         "<div class='pop-up'>
-            <div>Are you sure?</div>
+            <div>Weet u zeker dat u dit lokaal wilt verwijderen?</div>
             <div>
-                <a href='deleteRoom.php?id=" . $id . "&confirm=no'><button class='btn-no'>No</button></a>
-                <a href='deleteRoom.php?id=" . $id . "&confirm=yes'><button class='btn-yes'>Yes</button></a>
+                <a href='deleteRoom.php?id=" . $id . "&confirm=no'><button class='btn-no'>Nee</button></a>
+                <a href='deleteRoom.php?id=" . $id . "&confirm=yes'><button class='btn-yes'>Ja</button></a>
             </div>
         </div>";
 
