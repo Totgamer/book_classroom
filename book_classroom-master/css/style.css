@@ -128,3 +128,37 @@ header {
     color: #4c865d;
     font-weight: bold;
 }
+
+/* pop up */
+
+.pop-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    height: 50%;
+    width: 50%;
+    border-radius: 9px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pop-up div:nth-child(1) {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.btn-yes {
+    background-color: rgb(0, 235, 0);
+}
+
+.pop-up button {
+    border-radius: 9px;
+    height: 15px;
+    width: 25px;
+    text-align: center;
+}
