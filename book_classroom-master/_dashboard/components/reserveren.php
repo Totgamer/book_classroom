@@ -201,12 +201,11 @@ if($current_reservation == true) {
                             $newDate += $month;
                             $newDate += '-';
                             $newDate += $day;
-                        console.log($newDate);
 
-                        var $input = $('#date_select').pickadate();
-                        // Use the picker object directly.
-                        var picker = $input.pickadate('picker');
-                        picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
+                        // var $input = $('#date_select').pickadate();
+                        // // Use the picker object directly.
+                        // var picker = $input.pickadate('picker');
+                        // picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
 
                         // var datum = new Date(Date.UTC($year, $month, $day));
                         // console.log(datum.getTime()/1000;
@@ -227,11 +226,8 @@ if($current_reservation == true) {
                                 $newDate += $month;
                                 $newDate += '-';
                                 $newDate += $day;
-                            console.log($newDate);
 
                             $('#room_num').val($data.slice(8, 11));
-                            picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
-                            // $('#date_select').val($newDate);
                             $('#time_start').val($data.slice(14, 19));
                             $('#time_end').val($data.slice(22, 27));
                         });
