@@ -176,8 +176,11 @@ if($current_reservation == true) {
                         <input type="hidden" value="<?php echo $_SESSION['username']?> " name="name" class="form-control">
                         <input type="submit" name="r_update" value="aanpassen" class="btn btn-danger pull-right mt-3">
                         <script>
+
                         var date = document.getElementById("date_select");
                         var today = new Date();
+
+                        
 
                         date.addEventListener('input', function (evt) {
                             if(new Date(date.toDateString()) < new Date(new Date().toDateString())) {
@@ -200,16 +203,35 @@ if($current_reservation == true) {
                             $newDate += $day;
                         console.log($newDate);
 
+                        var $input = $('#date_select').pickadate();
+                        // Use the picker object directly.
+                        var picker = $input.pickadate('picker');
+                        picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
+
+                        // var datum = new Date(Date.UTC($year, $month, $day));
+                        // console.log(datum.getTime()/1000;
+
                         $('#room_num').val($data.slice(8, 11));
-                        $('#date_select').val($newDate);
+                        // $('#date_select').val($newDate);
                         $('#time_start').val($data.slice(14, 19));
                         $('#time_end').val($data.slice(22, 27));
 
                         $("#reservation").bind('change', function (evt) {
+                            
                             $data = $("#reservation option:selected").text();
+                            $year = $data.slice(36, 40);
+                            $month = $data.slice(33, 35);
+                            $day = $data.slice(30, 32);
+                            $newDate = $data.slice(36, 40);
+                                $newDate += '-';
+                                $newDate += $month;
+                                $newDate += '-';
+                                $newDate += $day;
+                            console.log($newDate);
 
                             $('#room_num').val($data.slice(8, 11));
-                            $('#date_select').val($newDate);
+                            picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
+                            // $('#date_select').val($newDate);
                             $('#time_start').val($data.slice(14, 19));
                             $('#time_end').val($data.slice(22, 27));
                         });

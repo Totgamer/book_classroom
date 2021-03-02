@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="perfect-scrollbar-on">
 
 <head>
   <title>Dashboard</title>
@@ -116,6 +116,19 @@
       </footer>
     </div>
   </div>
+  <!--   Core JS Files   -->
+<script src="js/core/jquery.min.js" type="text/javascript"></script>
+<script src="js/core/popper.min.js" type="text/javascript"></script>
+<script src="js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chartist JS -->
+<script src="js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
 </body>
 
 </html>
