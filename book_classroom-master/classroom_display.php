@@ -40,13 +40,28 @@
                                                 $row['time_start'] = substr($row['time_start'], 0, -3);
                                                 $row['time_end'] = substr($row['time_end'], 0, -3);
 
-                                                echo "<tr>";
-                                                echo "<td class='text-light'>" . $row['date'] . "</td>";
-                                                echo "<td class='text-light'>" . $row['time_start'] . "</td>";
-                                                echo "<td class='text-light'>" . $row['time_end'] . "</td>";
-                                                echo "<td class='text-light'>" . $row['lokaal'] . "</td>";
-                                                echo "<td class='text-light'>" . $row['name'] . "</td>";
-                                                echo "</tr>";
+                                                // check if is ongoing
+                                                $f = DateTime::createFromFormat('H:i', $row['time_start']);
+                                                $t = DateTime::createFromFormat('H:i', $row['time_end']);
+                                                $i = DateTime::createFromFormat('H:i', date("H:i"));
+                                                // ongoing meeting
+                                                if ($i > $f && $i < $t){
+                                                    echo "<tr class='card-header-success'>";
+                                                    echo "<td class='text-light'>" . $row['date'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['time_start'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['time_end'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['lokaal'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['name'] . "</td>";
+                                                    echo "</tr>";
+                                                }else {
+                                                    echo "<tr>";
+                                                    echo "<td class='text-light'>" . $row['date'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['time_start'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['time_end'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['lokaal'] . "</td>";
+                                                    echo "<td class='text-light'>" . $row['name'] . "</td>";
+                                                    echo "</tr>";
+                                                }
                                             }
                                         }
                                     ?>
