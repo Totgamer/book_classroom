@@ -80,7 +80,10 @@
                                 $cur_time = $cur_time_h + $cur_time_m + strtotime($date);
                                 if( $cur_time > strtotime('now') ) {
  
+                                    // time and date variable
                                     $row['date'] = date("d-m-Y", strtotime($row['date']));
+                                    $row['time_start'] = substr($row['time_start'], 0, -3);
+                                    $row['time_end'] = substr($row['time_end'], 0, -3);
 
                                     echo "<tr>";
                                     echo "<td>" . $row['date'] . "</td>";
@@ -118,8 +121,6 @@
 </div>
 <!-- reservatie aanpassen -->
 <?php
-// $sql_check = "SELECT * FROM reservaties WHERE `name`='" . $_SESSION['username'] . "' AND `date` > NOW() ";
-// $result_check = mysqli_query($db, $sql_check) or die(mysqli_query($db));
 
 if($current_reservation == true) {
 ?>
@@ -202,16 +203,7 @@ if($current_reservation == true) {
                             $newDate += '-';
                             $newDate += $day;
 
-                        // var $input = $('#date_select').pickadate();
-                        // // Use the picker object directly.
-                        // var picker = $input.pickadate('picker');
-                        // picker.set('select', $newDate, { format: 'yyyy-mm-dd' });
-
-                        // var datum = new Date(Date.UTC($year, $month, $day));
-                        // console.log(datum.getTime()/1000;
-
                         $('#room_num').val($data.slice(8, 11));
-                        // $('#date_select').val($newDate);
                         $('#time_start').val($data.slice(14, 19));
                         $('#time_end').val($data.slice(22, 27));
 
