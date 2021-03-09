@@ -6,6 +6,6 @@
 
 <div class="row">
 <div class="col-md-12">
-    <?php echo "<h3 class='date text-secondary'>" . date("d-m-Y") . "</h3>"; ?>
+    <?php echo "<h3 class='date text-light'>" . date("d-m-Y") . "</h3>"; ?>
 </div>
 </div>

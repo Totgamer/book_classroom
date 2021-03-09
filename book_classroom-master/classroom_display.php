@@ -12,12 +12,12 @@
                     </div>
                     <div class="card-body table-responsive">
                         <table class="table table-hover-secondary">
-                            <thead class="text-success">
+                            <thead class="text-light">
                                 <tr>
                                     <th>Datum</th>
-                                    <th>Start tijd</th>
-                                    <th>Eind tijd</th>
-                                    <th>Lokaal</th>
+                                    <th>Start</th>
+                                    <th>Eind</th>
+                                    <th>Ruimte</th>
                                     <th>Gepland door</th>
                                 </tr>
                             </thead>

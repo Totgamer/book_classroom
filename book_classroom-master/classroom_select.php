@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <div class="card">
             <div class="card-header card-header-success">
-                <h4 class="card-title">Selecteer Lokaal</h4>
-                <p class="card-category">selecteer een lokaal om de reserveringen te zien</p>
+                <h4 class="card-title">Selecteer Ruimte</h4>
+                <p class="card-category">selecteer een ruimte om de reserveringen te zien</p>
             </div>
             <div class="card-body table-responsive">
             <?php include("errors.php") ?>

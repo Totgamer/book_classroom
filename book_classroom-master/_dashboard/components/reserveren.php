@@ -5,13 +5,13 @@
         <div class="card">
         <div class="card-header card-header-primary">
             <h4 class="card-title">Reservatie formulier</h4>
-            <p class="card-category">reserveer een lokaal voor een groepsbespreking</p>
+            <p class="card-category">reserveer een ruimte voor een groepsbespreking</p>
         </div>
         <div class="card-body table-responsive">
         <?php include("errors.php") ?>
             <form action="index.php?action=reserveren" method="post"> 
                 <div class="form-group">    
-                    <label class="form-check-label">Lokaal</label>
+                    <label class="form-check-label">Ruimte</label>
                     <select class="form-control" name="room">
                         <?php
                             $sql = "SELECT * FROM lokalen"; 
@@ -56,9 +56,9 @@
                 <thead class="text-warning">
                     <tr>
                         <th>Datum</th>
-                        <th>Start tijd</th>
-                        <th>Eind tijd</th>
-                        <th>Lokaal</th>
+                        <th>Start</th>
+                        <th>Eind</th>
+                        <th>Ruimte</th>
                         <?php if($_SESSION['isAdmin']) {
                             echo "<th>" . "Gepland door" . "</th>";
                             echo "<th>" . "Actions" . "</th>";
@@ -158,7 +158,7 @@ if($current_reservation == true) {
                                 }
                             ?>
                         </select>
-                        <label class="form-check-label">Lokaal</label>
+                        <label class="form-check-label">Ruimte</label>
                         <select id="room_num" class="form-control" name="room">
                             <?php
                                 $sql = "SELECT * FROM lokalen"; 
